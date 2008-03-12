@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+school1:
+  id: 1
+  name: school1
+  description: school1 description
+  created_by: 1000001
+school2:
+  id: 2
+  name: school2
+  description: school2 description
+  created_by: 1000001

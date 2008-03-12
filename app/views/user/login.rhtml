@@ -1,0 +1,18 @@
+<div title="<%= title_helper %>" class="form">
+  <%= head_helper %>
+
+  <div class="form-padding">
+    <% form_tag_helper do %>
+      <table>
+        <%= form_input :text_field, "login", :size => 30 %><br/>
+        <%= form_input :password_field, "password", :size => 30 %><br/>
+      </table>
+
+      <div class="button-bar">
+        <%= button_helper 'login' %>
+        <%= link_helper 'login_signup', :action => 'signup' %> | 
+        <%= link_helper 'login_forgot_password', :action => 'forgot_password' %>      </div>
+    <% end %>
+  </div>
+</div>
+                                                                                

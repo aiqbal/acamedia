@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+course1:
+  id: 1
+  name: course1
+  description: course1 description
+  created_by: 1000001
+course2:
+  id: 2
+  name: course2
+  description: course2 description
+  created_by: 1000001

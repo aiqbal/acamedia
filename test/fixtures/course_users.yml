@@ -1,0 +1,8 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  user_id: 1000001
+  course_id: 1 
+
+second:
+  user_id: 1000001
+  course_id: 2
