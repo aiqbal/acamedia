@@ -8,5 +8,6 @@ class DisciplinesUsers < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :disciplines_users
   end
 end
