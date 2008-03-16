@@ -8,6 +8,9 @@ course_link1:
   level: bs
   offered_year: 2005 
   url: 'http://mit.edu.pk/course1_2005.html'
+  assignments_url: 'http://mit.edu.pk/course1_assignments_2005.html'
+  lectures_url: 'http://mit.edu.pk/course1_lectures_2005.html'
+  video_lectures_url: 'http://mit.edu.pk/course1_video_2005.html'
 course_link2:
   id: 2
   course_id: 1
@@ -16,3 +19,6 @@ course_link2:
   level: bs
   offered_year: 2006
   url: 'http://mit.edu.pk/course1_2006.html'
+  assignments_url: 'http://mit.edu.pk/course1_assignments_2006.html'
+  lectures_url: 'http://mit.edu.pk/course1_lectures_2006.html'
+  video_lectures_url: 'http://mit.edu.pk/course1_video_2006.html'
