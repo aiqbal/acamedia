@@ -4,6 +4,7 @@ class CreateSchools < ActiveRecord::Migration
       t.column :name,         :string,  :null => false
       t.column :description,  :text,    :null => false
       t.column :created_by,   :integer, :null => false
+      t.column :domain,       :string,  :null => false
       t.timestamps
     end
   end
