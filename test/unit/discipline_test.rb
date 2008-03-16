@@ -11,4 +11,9 @@ class DisciplineTest < ActiveSupport::TestCase
     expected_result = [@bob]
     assert_set_equal(expected_result, users)
   end
+
+  def test_get_schools
+    expected_result = [@school1]
+    assert_set_equal(expected_result, @discipline1.schools)
+  end
 end
