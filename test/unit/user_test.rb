@@ -40,6 +40,11 @@ class UserTest < ActiveSupport::TestCase
     assert_set_equal(expected_result, courses)
   end
 
+  def test_get_created_links
+    expected_result = [@course_link1, @course_link2]
+    assert_set_equal(expected_result, @bob.created_course_links)
+  end
+
   # Authentication test cases
   def test_auth
     

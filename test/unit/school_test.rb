@@ -10,4 +10,9 @@ class SchoolTest < ActiveSupport::TestCase
     expected_results = [@bob]
     assert_set_equal(expected_results, users)
   end
+
+  def test_get_course_links
+    expected_result = [@course_link1, @course_link2]
+    assert_set_equal(expected_result, @school1.course_links)
+  end
 end
