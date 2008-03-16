@@ -6,7 +6,7 @@ class CreateCourseLinks < ActiveRecord::Migration
       t.column :created_by,   :integer, :null => false
       t.column :url,          :string,  :null => false
       t.column :level,        :string,  :default => nil
-      t.column :offered_year, :string,  :default => nil
+      t.column :offered_year, :integer,  :default => nil
       t.timestamps
     end
   end
