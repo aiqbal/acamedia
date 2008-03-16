@@ -16,4 +16,9 @@ class DisciplineTest < ActiveSupport::TestCase
     expected_result = [@school1]
     assert_set_equal(expected_result, @discipline1.schools)
   end
+
+  def test_get_degrees
+    expected_result = [@degree1, @degree2]
+    assert_set_equal(expected_result, @discipline1.degrees)
+  end
 end

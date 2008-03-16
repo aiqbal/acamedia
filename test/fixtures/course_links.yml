@@ -5,7 +5,7 @@ course_link1:
   course_id: 1
   school_id: 1
   created_by: 1000001
-  level: bs
+  degree_id: 1
   offered_year: 2005 
   url: 'http://mit.edu.pk/course1_2005.html'
   assignments_url: 'http://mit.edu.pk/course1_assignments_2005.html'
@@ -16,7 +16,7 @@ course_link2:
   course_id: 1
   school_id: 1
   created_by: 1000001
-  level: bs
+  degree_id: 1
   offered_year: 2006
   url: 'http://mit.edu.pk/course1_2006.html'
   assignments_url: 'http://mit.edu.pk/course1_assignments_2006.html'

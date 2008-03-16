@@ -12,4 +12,8 @@ class CourseLinkTest < ActiveSupport::TestCase
   def test_get_creator
     assert_equal(@bob, @course_link1.creator)
   end
+
+  def test_get_degree
+    assert_equal(@degree1, @course_link1.degree)
+  end
 end
