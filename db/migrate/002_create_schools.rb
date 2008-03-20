@@ -7,6 +7,8 @@ class CreateSchools < ActiveRecord::Migration
       t.column :domain,       :string,  :null => false
       t.timestamps
     end
+    add_index :schools, :domain, :unique => true
+    add_index :schools, :name
   end
 
   def self.down
