@@ -29,5 +29,11 @@ class CourseTest < ActiveSupport::TestCase
     c.name = "ab"
     assert(!c.save)
     assert(c.errors["name"])
+
+    # name uniqueness test
+    c = Course.new
+    c.name = @course1.name
+    assert(!c.save)
+    assert(c.errors["name"])
   end
 end
