@@ -21,4 +21,23 @@ class DisciplineTest < ActiveSupport::TestCase
     expected_result = [@degree1, @degree2]
     assert_set_equal(expected_result, @discipline1.degrees)
   end
+
+  def test_validation_checks
+    d = Discipline.new
+    # empty params check
+    assert(!d.save)
+    assert(d.errors["name"])
+    assert(d.errors["description"])
+    assert(d.errors["created_by"])
+
+    # name length
+    d.name = "ab"
+    assert(!d.save)
+    assert(d.errors["name"])
+
+    # name uniqueness test
+    d.name = @discipline1.name
+    assert(!d.save)
+    assert(d.errors["name"])
+  end
 end

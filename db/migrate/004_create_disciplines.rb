@@ -6,6 +6,8 @@ class CreateDisciplines < ActiveRecord::Migration
       t.column :created_by,   :integer, :null => false
       t.timestamps
     end
+    add_index :disciplines, :name, :unique => true 
+    add_index :disciplines, :created_by
   end
 
   def self.down
