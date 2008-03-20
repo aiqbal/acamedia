@@ -16,4 +16,18 @@ class CourseTest < ActiveSupport::TestCase
     expected_result = [@course_link1, @course_link2]
     assert_set_equal(expected_result, @course1.course_links)
   end
+
+  def test_validation_checks
+    c = Course.new
+    # empty params check
+    assert(!c.save)
+    assert(c.errors["name"])
+    assert(c.errors["description"])
+    assert(c.errors["created_by"])
+
+    # name length
+    c.name = "ab"
+    assert(!c.save)
+    assert(c.errors["name"])
+  end
 end

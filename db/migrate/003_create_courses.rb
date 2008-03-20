@@ -6,6 +6,8 @@ class CreateCourses < ActiveRecord::Migration
       t.column :created_by,   :integer, :null => false
       t.timestamps
     end
+    add_index :courses, :name, :unique => true 
+    add_index :courses, :created_by
   end
 
   def self.down
