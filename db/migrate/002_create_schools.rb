@@ -9,6 +9,7 @@ class CreateSchools < ActiveRecord::Migration
     end
     add_index :schools, :domain, :unique => true
     add_index :schools, :name
+    add_index :schools, :created_by
   end
 
   def self.down
