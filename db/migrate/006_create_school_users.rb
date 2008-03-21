@@ -5,6 +5,9 @@ class CreateSchoolUsers < ActiveRecord::Migration
       t.column :school_id,    :integer, :null => false
       t.timestamps
     end
+    add_index :school_users, :school_id
+    add_index :school_users, :user_id
+    add_index :school_users, [:user_id, :school_id]
   end
 
   def self.down

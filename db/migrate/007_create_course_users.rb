@@ -5,6 +5,9 @@ class CreateCourseUsers < ActiveRecord::Migration
       t.column :user_id,    :integer, :null => false
       t.timestamps
     end
+    add_index :course_users, :course_id
+    add_index :course_users, :user_id
+    add_index :course_users, [:user_id, :course_id]
   end
 
   def self.down
