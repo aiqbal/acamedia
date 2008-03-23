@@ -14,8 +14,13 @@ class School < ActiveRecord::Base
 
   def before_validation
     return unless self.domain
-    self.domain.gsub!("http://", "")
-    self.domain =~ /(www.)?([^\/]+).*/
-    self.domain = $2 if $2
+    self.domain = School.url_to_domain(self.domain)
+  end
+
+  def self.url_to_domain(url)
+    url = url.gsub("http://", "")
+    url =~ /(www.)?([^\/]+).*/
+    url = $2 if $2
+    return url
   end
 end

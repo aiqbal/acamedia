@@ -12,6 +12,10 @@ class CreateCourseLinks < ActiveRecord::Migration
       t.column :video_lectures_url, :string, :default => nil
       t.timestamps
     end
+    add_index :course_links, :course_id
+    add_index :course_links, :school_id
+    add_index :course_links, :created_by
+    add_index :course_links, :degree_id
   end
 
   def self.down
