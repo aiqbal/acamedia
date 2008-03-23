@@ -8,6 +8,11 @@ class CreateDegrees < ActiveRecord::Migration
       t.column :created_by,     :integer, :null => false
       t.timestamps
     end
+    add_index :degrees, :name
+    add_index :degrees, :short_name
+    add_index :degrees, :level
+    add_index :degrees, :discipline_id
+    add_index :degrees, :created_by
   end
 
   def self.down

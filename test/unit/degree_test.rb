@@ -13,4 +13,21 @@ class DegreeTest < ActiveSupport::TestCase
     expected_result = [@course_link1, @course_link2]
     assert_set_equal(expected_result, @degree1.course_links)
   end
+
+  def test_validation_checks
+    d = Degree.new
+    assert(!d.save)
+    assert(d.errors["name"])
+    assert(d.errors["short_name"])
+    assert(d.errors["created_by"])
+
+    # level value test
+    d.name = "test name"
+    d.short_name = "test nm"
+    d.level = "wrong level"
+    d.created_by = @bob
+    assert(!d.save)
+    assert(d.errors["level"])
+  end
+
 end
