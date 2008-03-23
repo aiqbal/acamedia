@@ -5,6 +5,8 @@ class DegreesSchools < ActiveRecord::Migration
       t.column :school_id,  :integer, :null => false
       t.timestamps
     end
+    add_index :degrees_schools, :school_id
+    add_index :degrees_schools, :degree_id
   end
 
   def self.down
