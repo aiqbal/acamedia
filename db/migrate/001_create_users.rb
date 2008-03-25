@@ -1,26 +1,24 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
-    create= <<END_OF_STRING
-      CREATE TABLE users (
-        id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        login VARCHAR(80) NOT NULL,
-        salted_password VARCHAR(40) NOT NULL,
-        firstname VARCHAR(40),
-        lastname VARCHAR(40),
-        salt CHAR(40) NOT NULL,
-        verified INT default 0,
-        role VARCHAR(40) default NULL,
-        security_token CHAR(40) default NULL,
-        token_expiry DATETIME default NULL,
-        created_at DATETIME default NULL,
-        updated_at DATETIME default NULL,
-        logged_in_at DATETIME default NULL,
-        deleted INT default 0,
-        delete_after DATETIME default NULL
-      ) TYPE=InnoDB DEFAULT CHARSET=utf8;
-END_OF_STRING
-      execute create
+    create_table :users do |t|
+      t.column  :login,           :string,    :null => false,   :limit => 80
+      t.column  :salted_password, :string,    :null => false,   :limit => 40 
+      t.column  :firstname,       :string,                      :limit => 40
+      t.column  :lastname,        :string,                      :limit => 40
+      t.column  :salt,            :string,    :null => false,   :limit => 40
+      t.column  :verified,        :boolean,   :default => 0
+      t.column  :role,            :string,    :default => nil,  :limit => 40
+      t.column  :security_token,  :string,    :null => false,   :limit => 40
+      t.column  :token_expiry,    :datetime,  :default => nil
+      t.column  :created_at,      :datetime,  :default => nil
+      t.column  :updated_at,      :datetime,  :default => nil
+      t.column  :logged_in_at,    :datetime,  :default => nil
+      t.column  :deleted,         :boolean,   :default => 0
+      t.column  :delete_after,    :datetime,  :default => nil
+    end
+    add_index :users, :login, :unique => true
   end
+
   def self.down
     drop_table :users
   end
