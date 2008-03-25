@@ -3,6 +3,6 @@
 user1:
   id: 1
   login: user1@testdomain.com
-  salted_password: ef94c16f6c124a4e84cc215c164767bfa25f6e92 # atest
-  salt: 7f8b036f9b647d46d22abdbfc8113f44a88f9889
+  salted_password: 763b7bcc11c748078031af7539f6d9ed2dfb0c0a # user1password
+  salt: dd70e74a0d43b1b3d32b7b28f65fa06d56cc4c0a
   verified: 1

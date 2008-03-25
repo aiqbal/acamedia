@@ -111,12 +111,7 @@ class UserTest < ActiveSupport::TestCase
   
   # authentication tests
   def test_authenticate
-    u = User.new
-    u.login = "test@testdomain.com"
-    u.password = "testpassword"
-    u.verified = 1
-    assert(u.save)
-    assert_equal(u, User.authenticate("test@testdomain.com", "testpassword"))
-    assert_equal(nil, User.authenticate("test@testdomain.com", "wrong password"))
+    assert_equal(@user1, User.authenticate("user1@testdomain.com", "user1password"))
+    assert_equal(nil, User.authenticate("user1@testdomain.com", "user1wrongpassword"))
   end
 end
