@@ -5,44 +5,44 @@ class UserTest < ActiveSupport::TestCase
   #fixtures :users, :schools, :disciplines_users, :courses
     
   def test_created_schools
-    schools = @bob.created_schools
+    schools = @user1.created_schools
     expected_result = [@school1, @school2]
     assert_set_equal(expected_result, schools)
   end
   
   def test_created_courses
-    courses = @bob.created_courses
+    courses = @user1.created_courses
     expected_result = [@course2, @course1]
     assert_set_equal(expected_result, courses)
   end
 
   def test_created_disciplines
-    disciplines = @bob.created_disciplines
+    disciplines = @user1.created_disciplines
     expected_result = [@discipline1, @discipline2]
     assert_set_equal(expected_result, disciplines)
   end
 
   def test_get_disciplines
-    disciplines = @bob.disciplines
+    disciplines = @user1.disciplines
     expected_result = [@discipline2, @discipline1]
     assert_set_equal(expected_result, disciplines)
   end
 
   def test_get_schools
-    schools = @bob.schools
+    schools = @user1.schools
     expected_result = [@school1, @school2]
     assert_set_equal(expected_result, schools)
   end
 
   def test_get_courses
-    courses = @bob.courses
+    courses = @user1.courses
     expected_result = [@course2, @course1]
     assert_set_equal(expected_result, courses)
   end
 
   def test_get_created_links
     expected_result = [@course_link1, @course_link2]
-    assert_set_equal(expected_result, @bob.created_course_links)
+    assert_set_equal(expected_result, @user1.created_course_links)
   end
 
   # validation tests
@@ -102,7 +102,7 @@ class UserTest < ActiveSupport::TestCase
 
   # update tests
   def test_update_user
-    u = User.find 1000001
+    u = User.find 1
     old_password = u.salted_password
     u.login = "test@testdomain.com"
     assert(u.save)

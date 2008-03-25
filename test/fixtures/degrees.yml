@@ -5,7 +5,7 @@ degree1:
   short_name: dg1
   level: bs
   discipline_id: 1
-  created_by: 1000001
+  created_by: 1
 
 degree2:
   id: 2
@@ -13,4 +13,4 @@ degree2:
   short_name: dg2
   level: bs
   discipline_id: 1
-  created_by: 1000001
+  created_by: 1

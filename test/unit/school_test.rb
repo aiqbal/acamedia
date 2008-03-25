@@ -2,12 +2,12 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class SchoolTest < ActiveSupport::TestCase
   def test_get_creator
-    assert_equal(@bob, @school1.creator)
+    assert_equal(@user1, @school1.creator)
   end
 
   def test_get_users
     users = @school1.users
-    expected_results = [@bob]
+    expected_results = [@user1]
     assert_set_equal(expected_results, users)
   end
 
@@ -50,7 +50,7 @@ class SchoolTest < ActiveSupport::TestCase
     s = School.new
     s.name = "test name"
     s.description = "test description"
-    s.created_by = @bob
+    s.created_by = @user1
     s.domain = "http://testschool.com"
     assert(s.save)
     assert_equal("testschool.com", s.domain)

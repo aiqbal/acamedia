@@ -3,12 +3,12 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CourseTest < ActiveSupport::TestCase
   def test_get_creator
     creator = @course1.creator
-    assert_equal(creator, @bob)
+    assert_equal(creator, @user1)
   end
 
   def test_get_users
     users = @course1.users
-    expected_result = [@bob]
+    expected_result = [@user1]
     assert_set_equal(expected_result, users)
   end
 

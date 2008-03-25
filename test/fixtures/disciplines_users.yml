@@ -1,6 +1,6 @@
 first:
-  user_id: 1000001
+  user_id: 1
   discipline_id: 1
 second:
-  user_id: 1000001
+  user_id: 1
   discipline_id: 2

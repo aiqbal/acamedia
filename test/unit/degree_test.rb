@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class DegreeTest < ActiveSupport::TestCase
   def test_get_creator
-    assert_equal(@bob, @degree1.creator)  
+    assert_equal(@user1, @degree1.creator)  
   end
 
   def test_get_discipline
@@ -25,7 +25,7 @@ class DegreeTest < ActiveSupport::TestCase
     d.name = "test name"
     d.short_name = "test nm"
     d.level = "wrong level"
-    d.created_by = @bob
+    d.created_by = @user1
     assert(!d.save)
     assert(d.errors["level"])
   end
