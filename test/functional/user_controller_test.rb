@@ -41,8 +41,6 @@ class UserControllerTest < Test::Unit::TestCase
       assert_equal 1, ActionMailer::Base.deliveries.size
       mail = ActionMailer::Base.deliveries[0]
       assert_equal "newbob@test.com", mail.to_addrs[0].to_s
-#      assert_match /login:\s+\w+\n/, mail.encoded
-#      assert_match /password:\s+\w+\n/, mail.encoded
       mail.encoded =~ /key=(.*?)"/
       key = $1
 
