@@ -114,4 +114,18 @@ class UserTest < ActiveSupport::TestCase
     assert_equal(@user1, User.authenticate("user1@testdomain.com", "user1password"))
     assert_equal(nil, User.authenticate("user1@testdomain.com", "user1wrongpassword"))
   end
+
+  # test change password
+  def test_change_password
+    @user1.password = "newpassword"
+    @user1.password_confirmation = "newpassword1"
+    assert(!@user1.save)
+
+    @user1.password = "newpassword"
+    @user1.password_confirmation = "newpassword"
+    assert(@user1.save)
+
+    assert_equal(nil, User.authenticate("user1@testdomain.com", "user1password"))
+    assert_equal(nil, User.authenticate("user1@testdomain.com", "user1wrongpassword"))
+  end
 end

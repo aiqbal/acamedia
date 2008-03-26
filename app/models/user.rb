@@ -4,8 +4,6 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
 protected
 
-  attr_accessor :new_password, :password, :password_confirmation
-  alias password_alias= password=
 
   has_many :created_schools,      :foreign_key => :created_by, :class_name => "School"
   has_many :created_courses,      :foreign_key => :created_by, :class_name => "Course"
@@ -48,6 +46,9 @@ protected
   end
   
 public
+  attr_accessor :new_password, :password, :password_confirmation
+  alias password_alias= password=
+
   def initialize(attributes = nil)
     super
     unless self.id
