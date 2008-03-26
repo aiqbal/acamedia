@@ -105,6 +105,16 @@ class UserTest < ActiveSupport::TestCase
     assert(u.save)
   end
 
+  def test_security_token_on_create
+    u = User.new
+    u.login = "test@testdomain.com"
+    u.password = "abcdefgh"
+    u.password_confirmation = "abcdefgh"
+    assert(u.save)
+    assert(u.security_token)
+    assert(u.token_expiry)
+  end
+
   # update tests
   def test_update_user
     u = User.find 1

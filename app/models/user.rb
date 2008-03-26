@@ -3,6 +3,7 @@ require 'digest/sha1'
 # this model expects a certain database layout and its based on the name/login pattern. 
 class User < ActiveRecord::Base
 protected
+  EXPIRE_AFTER_DAYS = 7
 
   has_many :created_schools,      :foreign_key => :created_by, :class_name => "School"
   has_many :created_courses,      :foreign_key => :created_by, :class_name => "Course"
@@ -28,6 +29,11 @@ protected
 
   def after_save
     @new_password = false
+  end 
+
+  def before_create
+    self.security_token = self.class.hashed("acamedias-#{Time.now}")
+    self.token_expiry  = EXPIRE_AFTER_DAYS.days.from_now
   end
   
   def validate_password?
