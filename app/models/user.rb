@@ -4,7 +4,6 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
 protected
 
-
   has_many :created_schools,      :foreign_key => :created_by, :class_name => "School"
   has_many :created_courses,      :foreign_key => :created_by, :class_name => "Course"
   has_many :created_disciplines,  :foreign_key => :created_by, :class_name => "Discipline"
@@ -23,6 +22,7 @@ protected
   validates_confirmation_of :password, :if => :validate_password?
   validates_length_of       :password, {:in => 6..40, :if => :validate_password?}
   validates_format_of       :login, :with => /^[^@]+@[^@]+\.[^@]+$/
+  validates_uniqueness_of   :login
 
   after_validation          :crypt_password
 

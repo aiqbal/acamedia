@@ -69,6 +69,11 @@ class UserTest < ActiveSupport::TestCase
     assert(!u.save)
     assert(u.errors["login"])
 
+    #already existing email
+    u.login = @user1.login
+    assert(!u.save)
+    assert(u.errors["login"])
+
     # valid email
     u.login = "test@test.com"
     assert(u.save)
