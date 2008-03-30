@@ -11,6 +11,19 @@ class UserController < ApplicationController
     end
   end
 
+  def confirm_email
+    login = params[:user][:login]
+    token = params[:user][:security_token]
+    u = User.verify_login(login, token)
+    if u
+      flash[:notice] = "Your account has been verified successfully"
+      redirect_to :action => "welcome"
+    else
+      flash[:notice] = "Invalid Request"
+      redirect_to :action => "signup"
+    end
+  end
+
   def authenticate
   end
 

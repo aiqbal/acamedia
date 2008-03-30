@@ -27,4 +27,18 @@ class UserControllerTest < ActionController::TestCase
     assert_redirected_to :action => "authenticate"
   end
 
+  def test_verify_user_invalid_params
+    get :confirm_email, {:user => {:login => @user2.login, :security_token => "invalid token"}}
+    assert_redirected_to :action => "signup"
+    u = User.find_by_login @user2.login
+    assert_equal(false, u.verified)
+  end
+
+  def test_verify_user
+    get :confirm_email, {:user => {:login => @user2.login, :security_token => @user2.security_token}}
+    assert_redirected_to :action => "welcome"
+    u = User.find_by_login @user2.login
+    assert_equal(true, u.verified)
+  end
+
 end
