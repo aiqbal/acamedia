@@ -5,7 +5,7 @@ class UserController < ApplicationController
     if request.post?
       @user = User.new(params[:user])
       if @user.save
-        flash[:notice] = "Please check your emails for email confirmation code,"
+        flash[:notice] = get_message('signup_completed')
         redirect_to :action => 'authenticate'
       end
     end
@@ -16,10 +16,10 @@ class UserController < ApplicationController
     token = params[:user][:security_token]
     u = User.verify_login(login, token)
     if u
-      flash[:notice] = "Your account has been verified successfully"
+      flash[:notice] = get_message('email_confirmed')
       redirect_to :action => "welcome"
     else
-      flash[:notice] = "Invalid Request"
+      flash[:notice] = get_message('invalid_email_confirmation')
       redirect_to :action => "signup"
     end
   end
