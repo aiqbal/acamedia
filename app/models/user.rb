@@ -22,7 +22,7 @@ protected
   validates_presence_of     :password, :if => :validate_password?
   validates_confirmation_of :password, :if => :validate_password?
   validates_length_of       :password, {:in => 6..40, :if => :validate_password?}
-  validates_format_of       :login, :with => /^[^@]+@[^@]+\.[^@]+$/
+  validates_format_of       :login, :with => /^[^@]+@[^@]+\.[^@]+$/, :message => "is not a valid email address"
   validates_uniqueness_of   :login
 
   after_validation          :crypt_password
