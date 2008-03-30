@@ -1,4 +1,4 @@
-module Messages
+class Messages
   GLOBAL_MESSAGES = {}
   MESSAGES_DIR = RAILS_ROOT + "/app/messages/"
 
@@ -12,9 +12,8 @@ module Messages
     end 
   end
 
-  def get_message(message_name, controller_name = nil)
-    controller = controller_name || params[:controller]
-    return GLOBAL_MESSAGES[controller][message_name] if GLOBAL_MESSAGES[controller]
+  def self.get_message(message_name, class_name)
+    self.load_message if GLOBAL_MESSAGES.empty?
+    return GLOBAL_MESSAGES[class_name][message_name] if GLOBAL_MESSAGES[class_name]
   end
-  self.load_message
 end

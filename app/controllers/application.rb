@@ -3,7 +3,6 @@
 require 'environment.rb'
 
 class ApplicationController < ActionController::Base
-  include Messages
   helper :all # include all helpers, all the time
 
   # See ActionController::RequestForgeryProtection for details
@@ -14,5 +13,9 @@ class ApplicationController < ActionController::Base
     unless session[:user]
       redirect_to :controller => :user, :action => :authenticate
     end
+  end
+
+  def get_message(message_name)
+    Messages.get_message(message_name, self.controller_name)
   end
 end

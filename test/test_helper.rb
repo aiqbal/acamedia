@@ -1,9 +1,9 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+require 'messages'
 
 class Test::Unit::TestCase
-  include Messages
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded
@@ -39,6 +39,10 @@ class Test::Unit::TestCase
 
   def assert_set_equal(expected, observed)
     assert_equal(Set.new(expected), Set.new(observed))
+  end
+
+  def get_message(message, class_name)
+    Messages.get_message(message, class_name)
   end
 
   # Add more helper methods to be used by all tests here...
