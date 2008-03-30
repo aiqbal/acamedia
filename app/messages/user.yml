@@ -1,0 +1,6 @@
+# signup action
+signup_completed: You have successfully signed up, Please check your emails for email verification.
+
+#confirm email
+email_confirmed: Your email has been verified successfully.
+invalid_email_confirmation: It seems your token has expired, Please signup again.

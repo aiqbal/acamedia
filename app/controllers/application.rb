@@ -3,6 +3,7 @@
 require 'environment.rb'
 
 class ApplicationController < ActionController::Base
+  include Messages
   helper :all # include all helpers, all the time
 
   # See ActionController::RequestForgeryProtection for details
