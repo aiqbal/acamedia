@@ -143,4 +143,18 @@ class UserTest < ActiveSupport::TestCase
     assert_equal(nil, User.authenticate("user1@testdomain.com", "user1password"))
     assert_equal(nil, User.authenticate("user1@testdomain.com", "user1wrongpassword"))
   end
+
+  # test verify user
+  def test_verify_user
+    # invalid params
+    u = @user2
+    user = User.verify_login(u.login, "wrong token")
+    assert(!user)
+
+    # valid params
+    user = User.verify_login(u.login, u.security_token)
+    assert(user)
+    user = User.find_by_login u.login
+    assert(1, user.verified)
+  end
 end

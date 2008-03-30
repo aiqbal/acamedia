@@ -6,3 +6,11 @@ user1:
   salted_password: 763b7bcc11c748078031af7539f6d9ed2dfb0c0a # user1password
   salt: dd70e74a0d43b1b3d32b7b28f65fa06d56cc4c0a
   verified: 1
+
+user2:
+  id: 2
+  login: user2@testdomain.com
+  salted_password: 83aa56d301569fb86c621bd11dd080ca248b1e24 # user2password
+  salt: 97f8a58ac241f5e8b72fddd88f4c2ce71fdfe7fb
+  verified: 0
+  security_token: 97f8a58ac241f5e8b72fddd88f4c2ce71fdfe7fb

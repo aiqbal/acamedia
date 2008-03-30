@@ -77,4 +77,15 @@ public
       return nil
     end
   end
+
+  def self.verify_login(login, security_token)
+    begin
+      u = find(:first, :conditions => ["login = ? AND security_token = ?", login, security_token])
+      u.verified = true
+      u.save
+      return u
+    rescue
+      return nil
+    end
+  end
 end
