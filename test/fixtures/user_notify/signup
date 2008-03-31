@@ -1,0 +1,13 @@
+Greetings !!!
+
+Welcome to <%= APP_NAME %>
+
+Your login credentials are:
+
+  login:    <%= @login %>
+
+Please click on the following link to confirm your registration:
+
+<a href="<%= @url%>">Click me!</a>
+
+<%= @url %>

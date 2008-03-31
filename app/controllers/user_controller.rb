@@ -5,6 +5,8 @@ class UserController < ApplicationController
     if request.post?
       @user = User.new(params[:user])
       if @user.save
+        confirmation_url = url_for :action => :confirm_email, :login => @user.login, :security_token => @user.security_token
+        UserNotify.deliver_signup(@user, confirmation_url)
         flash[:notice] = get_message('signup_completed')
         redirect_to :action => 'authenticate'
       end
@@ -12,8 +14,8 @@ class UserController < ApplicationController
   end
 
   def confirm_email
-    login = params[:user][:login]
-    token = params[:user][:security_token]
+    login = params[:login]
+    token = params[:security_token]
     u = User.verify_login(login, token)
     if u
       flash[:notice] = get_message('email_confirmed')

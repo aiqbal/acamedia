@@ -30,6 +30,9 @@ class UserControllerTest < ActionController::TestCase
     post :signup, {:user => {:login => 'test@testdomain.com', :password => "testpassword", :password_confirmation => "testpassword"}}
     assert_redirected_to :action => "authenticate"
     assert_equal get_msg("signup_completed"), flash[:notice]
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    mail = ActionMailer::Base.deliveries[0]
+    assert_equal "test@testdomain.com", mail.to_addrs[0].to_s
   end
 
   def test_verify_user_invalid_params
@@ -42,7 +45,7 @@ class UserControllerTest < ActionController::TestCase
   end
 
   def test_verify_user
-    get :confirm_email, {:user => {:login => @user2.login, :security_token => @user2.security_token}}
+    get :confirm_email, :login => @user2.login, :security_token => @user2.security_token
     assert_redirected_to :action => "welcome"
     assert_equal get_msg("email_confirmed"), flash[:notice]
 
