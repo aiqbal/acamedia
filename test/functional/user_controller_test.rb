@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserControllerTest < ActionController::TestCase
+  include LoginHelper
   # Replace this with your real tests.
   def setup
     @controller = UserController.new
@@ -68,6 +69,14 @@ class UserControllerTest < ActionController::TestCase
     assert_redirected_to :action => "welcome"
     assert_equal get_msg("authentication_successful"), flash[:notice]
     assert_equal(@user1, session[:user])
+  end
+
+  def test_before_filters
+    get :welcome
+    assert_redirected_to :action => :authenticate
+    
+    get_as_logged_in :welcome
+    assert_response 200
   end
 
 end

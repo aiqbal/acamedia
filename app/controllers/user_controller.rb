@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   layout 'scaffold'
+  before_filter :login_required, :only => [:welcome, :edit]
 
   def signup
     if request.post?

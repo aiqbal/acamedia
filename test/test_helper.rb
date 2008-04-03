@@ -47,3 +47,13 @@ class Test::Unit::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+module LoginHelper  
+  def get_as_logged_in(action, user=@user1, params={}, session={})
+    return get(action, params, session.merge({:user => user}))
+  end
+  
+  def post_as_logged_in(action, user=@user1, params={}, session={})
+    return post(action, params, session.merge({:user => user}))
+  end
+end
