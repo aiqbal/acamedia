@@ -53,4 +53,21 @@ class UserControllerTest < ActionController::TestCase
     assert_equal(true, u.verified)
   end
 
+  def test_invalid_authenticate
+    post :authenticate, {:user => {:login => @user1.login, :password => "invalid_password"}}
+    assert_equal get_msg("authentication_failed"), flash[:error]
+    assert !session[:user]
+
+    post :authenticate, {:user => {:login => @user2.login, :password => "user2password"}}
+    assert_equal get_msg("authentication_failed"), flash[:error]
+    assert !session[:user]
+  end
+
+  def test_authenticate
+    post :authenticate, {:user => {:login => @user1.login, :password => "user1password"}}
+    assert_redirected_to :action => "welcome"
+    assert_equal get_msg("authentication_successful"), flash[:notice]
+    assert_equal(@user1, session[:user])
+  end
+
 end

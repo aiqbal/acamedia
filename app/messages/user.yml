@@ -4,3 +4,7 @@ signup_completed: You have successfully signed up, Please check your emails for 
 #confirm email
 email_confirmed: Your email has been verified successfully.
 invalid_email_confirmation: It seems your token has expired, Please signup again.
+
+#authenticate
+authentication_failed: Invalid login name or password
+authentication_successful: You ve successfully logged in
