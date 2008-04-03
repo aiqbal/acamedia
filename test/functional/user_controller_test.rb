@@ -36,7 +36,7 @@ class UserControllerTest < ActionController::TestCase
   end
 
   def test_verify_user_invalid_params
-    get :confirm_email, {:user => {:login => @user2.login, :security_token => "invalid token"}}
+    get :confirm_email, {:login => @user2.login, :security_token => "invalid token"}
     assert_redirected_to :action => "signup"
     assert_equal get_msg("invalid_email_confirmation"), flash[:notice]
 
