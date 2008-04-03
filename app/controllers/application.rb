@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
   def get_message(message_name)
     Messages.get_message(message_name, self.controller_name)
   end
+
+  def set_session_user(user)
+    session[:user] = user
+  end
+
+  def get_session_user()
+    return session[:user]
+  end
 end

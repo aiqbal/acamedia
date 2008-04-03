@@ -27,6 +27,16 @@ class UserController < ApplicationController
   end
 
   def authenticate
+    if request.post?
+      @user = User.new(params[:user])
+      if user = User.authenticate(@user.login, @user.password)
+        set_session_user(user)
+        flash[:notice] = get_message('authentication_successful')
+        redirect_to :action => 'welcome'
+      else
+        flash[:error] = get_message('authentication_failed')
+      end
+    end
   end
 
   def edit
