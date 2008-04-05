@@ -79,4 +79,35 @@ class UserControllerTest < ActionController::TestCase
     assert_response 200
   end
 
+  def test_change_password
+    post :change_password
+    assert_redirected_to :action => :authenticate
+
+    post_as_logged_in :change_password, @user1, {:user => {:password => "", :password_confirmation => ""}}
+    assert session[:user].errors[:password]
+    assert_redirected_to :action => :edit
+
+    post_as_logged_in :change_password, @user1, {:user => {:password => "newpassword", :password_confirmation => "newpassword"}}
+    assert_redirected_to :action => :edit
+    #assert_equal(get_msg('change_password_successful'), flash[:notice])
+
+    # test that the changed password is now authenticated
+    post :authenticate, {:user => {:login => @user1.login, :password => "newpassword"}}
+    assert_redirected_to :action => "welcome"
+    #assert_equal(get_msg("authentication_successful"), flash[:notice])
+  end
+
+  def test_edit_user
+    post :edit
+    assert_redirected_to :action => :authenticate
+
+    post_as_logged_in :edit, @user1, {:user => {:firstname => "new first", :lastname => "new last"}}
+    assert_redirected_to :action => :welcome
+    #assert_equal(get_msg('edit_user_successful'), flash[:notice])
+    
+    u = User.find 1  
+    assert_equal "new first", u.firstname
+    assert_equal "new last", u.lastname
+  end
+
 end

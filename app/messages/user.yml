@@ -8,3 +8,9 @@ invalid_email_confirmation: It seems your token has expired, Please signup again
 #authenticate
 authentication_failed: Invalid login name or password
 authentication_successful: You ve successfully logged in
+
+#change_password
+change_password_successful: Your password has been changed successfully
+
+#edit_user
+edit_user_successful: Changes have been updated successfully

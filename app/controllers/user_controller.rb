@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   layout 'scaffold'
-  before_filter :login_required, :only => [:welcome, :edit]
+  before_filter :login_required, :except => [:signup, :authenticate, :confirm_email]
 
   def signup
     if request.post?
@@ -41,9 +41,29 @@ class UserController < ApplicationController
   end
 
   def edit
+    @user = get_session_user()
+    if request.post?
+      @user.new_password = nil
+      @user.firstname = params[:user][:firstname]
+      @user.lastname = params[:user][:lastname]
+      if @user.save
+        flash[:notice] = get_message('edit_user_successful')
+        redirect_to :action => 'welcome'
+      end
+    end
   end
 
-  def forgot_password
+  def change_password
+    if request.post?
+      user = get_session_user
+      user.password = params[:user][:password]
+      user.password_confirmation = params[:user][:password_confirmation]
+      if user.save
+        flash[:notice] = get_message('change_password_successful')
+      end
+      user.password = user.password_confirmation = nil
+    end
+    redirect_to :action => :edit
   end
 
   def welcome

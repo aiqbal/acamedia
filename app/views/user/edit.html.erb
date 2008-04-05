@@ -1,2 +1,18 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<h1>Edit User</h1>
+<div class="errors">
+  <%=get_error_messages 'user' %>
+</div>
+
+<%form_for :user do |form|%>
+  <p> Login:            <%= @user.login                                             %> </p>
+  <p> First Name:       <%= form.text_field     :firstname,             :size => 40 %> </p>
+  <p> Last Name:        <%= form.text_field     :lastname,              :size => 40 %> </p>
+  <p> <%= submit_tag %> </p>
+<%end%>
+
+<h1>Change Password</h1>
+<%form_for :user, :url => {:action => :change_password} do |form|%> 
+  <p> Password:         <%= form.password_field :password,              :size => 40 %> </p>
+  <p> Retype Password:  <%= form.password_field :password_confirmation, :size => 40 %> </p>
+  <p> <%= submit_tag %> </p>
+<%end%>
