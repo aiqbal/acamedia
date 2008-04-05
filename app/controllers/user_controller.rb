@@ -68,4 +68,10 @@ class UserController < ApplicationController
 
   def welcome
   end
+
+  def logout
+    session[:user] = nil
+    flash[:notice] = get_message('logout_successful')
+    redirect_to :action => :authenticate
+  end
 end

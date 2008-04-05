@@ -110,4 +110,14 @@ class UserControllerTest < ActionController::TestCase
     assert_equal "new last", u.lastname
   end
 
+  def test_logout
+    post :logout
+    assert_redirected_to :action => :authenticate
+
+    post_as_logged_in :logout
+    #assert_equal(get_msg('logout_successful'), flash[:notice])
+    assert_redirected_to :action => :authenticate
+    assert_equal nil, session[:user]
+  end
+
 end

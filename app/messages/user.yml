@@ -14,3 +14,6 @@ change_password_successful: Your password has been changed successfully
 
 #edit_user
 edit_user_successful: Changes have been updated successfully
+
+#logout
+logout_successful: You have successfully logged out
