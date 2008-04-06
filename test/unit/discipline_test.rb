@@ -22,6 +22,11 @@ class DisciplineTest < ActiveSupport::TestCase
     assert_set_equal(expected_result, @discipline1.degrees)
   end
 
+  def test_get_courses
+    expected_result = [@course1, @course2]
+    assert_set_equal(expected_result, @discipline1.courses)
+  end
+
   def test_validation_checks
     d = Discipline.new
     # empty params check

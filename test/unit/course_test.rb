@@ -16,6 +16,10 @@ class CourseTest < ActiveSupport::TestCase
     expected_result = [@course_link1, @course_link2]
     assert_set_equal(expected_result, @course1.course_links)
   end
+  
+  def test_get_discipline
+    assert_equal @discipline1, @course1.discipline
+  end
 
   def test_validation_checks
     c = Course.new
@@ -36,4 +40,5 @@ class CourseTest < ActiveSupport::TestCase
     assert(!c.save)
     assert(c.errors["name"])
   end
+
 end

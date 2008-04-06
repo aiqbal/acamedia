@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.column :name,         :string,  :null => false
       t.column :description,  :text,    :null => false
       t.column :created_by,   :integer, :null => false
+      t.column :discipline_id,:integer, :null => false
       t.timestamps
     end
     add_index :courses, :name, :unique => true 
