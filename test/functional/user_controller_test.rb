@@ -2,15 +2,12 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UserControllerTest < ActionController::TestCase
   include LoginHelper
+  include MessageHelper
   # Replace this with your real tests.
   def setup
     @controller = UserController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-  end
-
-  def get_msg(msg_id)
-    expected_message = get_message(msg_id, @controller.controller_name)
   end
 
   def test_signup_invalid_params
