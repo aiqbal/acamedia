@@ -57,3 +57,9 @@ module LoginHelper
     return post(action, params, session.merge({:user => user}))
   end
 end
+
+module MessageHelper
+  def get_msg(msg_id)
+    expected_message = get_message(msg_id, @controller.controller_name)
+  end
+end

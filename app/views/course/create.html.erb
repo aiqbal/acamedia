@@ -1,0 +1,11 @@
+<h1>Create Course</h1>
+<div class="errors">
+  <%=error_messages_for 'course' %>
+</div>
+
+<%form_for :course do |form|%>
+  <p> Name:             <%= form.text_field     :name,                  :size => 40 %> </p>
+  <p> Description:      <%= form.text_field     :description,           :size => 40 %> </p>
+  <p> Discipline:       <%= form.select         :discipline_id,         @disciplines%> </p>
+  <p> <%= submit_tag %> </p>
+<%end%>
