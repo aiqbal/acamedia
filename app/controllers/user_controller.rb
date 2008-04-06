@@ -20,7 +20,7 @@ class UserController < ApplicationController
     u = User.verify_login(login, token)
     if u
       flash[:notice] = get_message('email_confirmed')
-      redirect_to :action => "welcome"
+      redirect_to :action => "login"
     else
       flash[:notice] = get_message('invalid_email_confirmation')
       redirect_to :action => "signup"

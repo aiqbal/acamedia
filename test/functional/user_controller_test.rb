@@ -47,7 +47,7 @@ class UserControllerTest < ActionController::TestCase
 
   def test_verify_user
     get :confirm_email, :login => @user2.login, :security_token => @user2.security_token
-    assert_redirected_to :action => "welcome"
+    assert_redirected_to :action => "login"
     assert_equal get_msg("email_confirmed"), flash[:notice]
 
     u = User.find_by_login @user2.login
