@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   validates_presence_of     :name, :description, :created_by
+  validates_presence_of     :discipline, :message => "Discipline cant be empty"
   validates_uniqueness_of   :name
   validates_length_of       :name, :in => 3..255
 

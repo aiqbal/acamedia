@@ -28,6 +28,7 @@ class CourseTest < ActiveSupport::TestCase
     assert(c.errors["name"])
     assert(c.errors["description"])
     assert(c.errors["created_by"])
+    assert(c.errors["discipline"])
 
     # name length
     c.name = "ab"
@@ -39,6 +40,13 @@ class CourseTest < ActiveSupport::TestCase
     c.name = @course1.name
     assert(!c.save)
     assert(c.errors["name"])
+
+    # valid save
+    c.name = "New course"
+    c.discipline = @discipline1
+    c.description = "New course description"
+    c.created_by = @user1
+    assert(c.save)
   end
 
 end
