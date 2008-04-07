@@ -15,7 +15,7 @@ class CourseController < ApplicationController
       end
     else
     end
-    @disciplines = Discipline.find(:all, :order => "name" ).map {|d| [d.name, d.id] }
+    @disciplines = Discipline.get_sorted_disciplines
   end
 
   def edit

@@ -8,4 +8,9 @@ class Discipline < ActiveRecord::Base
   has_many :courses
   has_and_belongs_to_many :users
   has_and_belongs_to_many :schools
+
+  # returns sorted disciplines array of [[name, id]] for select
+  def self.get_sorted_disciplines
+    Discipline.find(:all, :order => "name" ).map {|d| [d.name, d.id] }
+  end
 end

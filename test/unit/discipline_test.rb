@@ -45,4 +45,10 @@ class DisciplineTest < ActiveSupport::TestCase
     assert(!d.save)
     assert(d.errors["name"])
   end
+
+  def test_get_sorted_disciplines
+    disciplines = Discipline.get_sorted_disciplines
+    expected_result = [[@discipline1.name, @discipline1.id],[@discipline2.name, @discipline2.id]]
+    assert_equal(expected_result, disciplines)
+  end
 end
