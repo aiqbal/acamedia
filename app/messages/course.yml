@@ -1,1 +1,6 @@
 created_successfully: Course has been created successfully.
+
+# course_links
+add_link_success: Link has been added successfully.
+add_link_failure: Link could not be saved.
+add_link_invalid_url: Invalid url specified, please specify a valid url.
