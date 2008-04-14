@@ -10,11 +10,10 @@ class CreateUsers < ActiveRecord::Migration
       t.column  :role,            :string,    :default => nil,  :limit => 40
       t.column  :security_token,  :string,    :null => false,   :limit => 40
       t.column  :token_expiry,    :datetime,  :default => nil
-      t.column  :created_at,      :datetime,  :default => nil
-      t.column  :updated_at,      :datetime,  :default => nil
       t.column  :logged_in_at,    :datetime,  :default => nil
       t.column  :deleted,         :boolean,   :default => 0
       t.column  :delete_after,    :datetime,  :default => nil
+      t.timestamps
     end
     add_index :users, :login, :unique => true
   end
