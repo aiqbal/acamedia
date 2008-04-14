@@ -44,4 +44,19 @@ class CourseLinkTest < ActiveSupport::TestCase
     assert(cl.save)
     assert_equal(@school1, cl.school)
   end
+  
+  def test_get_thumbs
+    c = @course_link1
+    assert_equal([@thumb1], c.thumbs)
+  end
+  
+  def test_add_thumb
+    c = @course_link1
+    t = c.add_thumb("1", @user2)
+    assert_set_equal([@thumb1, t], c.thumbs)
+
+    # make sure that a single cant add multiple thumbs for a single link
+    t = c.add_thumb("0", @user2)
+    assert_set_equal([@thumb1, t], c.thumbs)
+  end
 end
