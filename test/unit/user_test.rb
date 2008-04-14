@@ -157,4 +157,8 @@ class UserTest < ActiveSupport::TestCase
     user = User.find_by_login u.login
     assert(1, user.verified)
   end
+
+  def test_get_thumb
+    assert_set_equal([@thumb1], @user1.thumbs)
+  end
 end
