@@ -1,8 +1,13 @@
 /*General website settings*/
 body {
   width: 1024px;
-  font: 25px sans-serif, arial, verdana;
   margin: 0px auto 0px auto;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
 }
 
 img {
@@ -22,20 +27,42 @@ h1 {
   padding: 0px;
 }
 
-#header ul {
+#navigation-header ul {
   margin:0px;
   padding:0px;
-  padding-top: 120px;
-  margin-left: 20px;
+  padding-top: 117px;
+  margin-left: 55px;
 }
 
-#header li {
+#navigation-header li {
   display: inline;
   margin-right: 50px;
 }
 
-#header a {
+#navigation-header a {
   text-decoration: none;
+}
+
+#authentication-header {
+  float: right;
+  height: 50px;
+}
+
+#authentication-header ul {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#authentication-header li {
+  margin-right: 10px;
+  display: inline;
+}
+
+#authentication-header, #authentication-header a {
+  color: white;
+  font-size: 18px;
 }
 
 /*content div css*/

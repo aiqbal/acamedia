@@ -1,0 +1,14 @@
+<div id="authentication-header">
+  <% if user = get_session_user() %>
+    <ul>
+      <li>Welcome <%=user.login%></li>
+      <li><a href="<%=url_for(:controller => 'user', :action => 'logout')%>">Logout</a></li>
+    </ul>
+
+  <% else %>
+    <ul>
+      <li><a href="<%=url_for(:controller => 'user', :action => 'authenticate')%>">Login</a></li>
+      <li><a href="<%=url_for(:controller => 'user', :action => 'signup')%>">Sign Up</a></li>
+    </ul>
+  <% end %>
+</div>

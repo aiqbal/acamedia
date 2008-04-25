@@ -17,4 +17,8 @@ module ApplicationHelper
     end
     return files
   end
+
+  def get_session_user()
+    return session[:user]
+  end
 end
