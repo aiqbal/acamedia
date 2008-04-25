@@ -17,6 +17,17 @@ module ApplicationHelper
     end
     return files
   end
+  
+  def get_javascripts
+    files = []
+    javascript_root = "#{RAILS_ROOT}/public/javascripts/"
+    possible_files = [controller.controller_name, "#{controller.controller_name}/#{controller.action_name}"]
+    possible_files.each do |file_name|
+      path = "#{javascript_root}#{file_name}.js"
+      files << file_name if File.exists?(path)
+    end
+    return files
+  end
 
   def get_session_user()
     return session[:user]

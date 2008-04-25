@@ -1,0 +1,17 @@
+<%
+  style_files = get_stylesheets
+  style_files.each do |file_name|
+%>
+<%= stylesheet_link_tag(file_name) %>
+<%
+  end
+%>
+
+<%
+  javascript_files = get_javascripts
+  javascript_files.each do |file_name|
+%>
+<%= javascript_include_tag(file_name) %>
+<%
+  end
+%>

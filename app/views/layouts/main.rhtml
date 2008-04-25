@@ -6,8 +6,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>: <%= @title || controller.action_name %></title>
-  <%= stylesheet_link_tag 'main' %>  
-  <%= render(:partial => "main/include_default_css") %>
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag 'jquery-1.2.3.js' %>
+  <%= javascript_include_tag 'main' %>
+  <%= render(:partial => "main/include_default_css_js") %>
 </head>
 
 <body>
@@ -15,11 +17,11 @@
     <%= render(:partial => "main/authentication_header") %>
     <div id="navigation-header">
       <ul>
-        <li> <a href="/">                                         <img src="/images/home.png" />        </a></li>
-        <li> <a href="<%=url_for :controller => 'school'%>">      <img src="/images/school.png" />      </a></li>
-        <li> <a href="<%=url_for :controller => 'course'%>">      <img src="/images/course.png" />      </a></li>
-        <li> <a href="<%=url_for :controller => 'discipline'%>">  <img src="/images/discipline.png" />  </a></li>
-        <li> <a href="<%=url_for :controller => 'teacher'%>">     <img src="/images/teacher.png" />     </a></li>
+       <li> <a id="home-link"        href="/">                                         <img src="/images/home.png" />        </a></li>
+        <li> <a id="school-link"     href="<%=url_for :controller => 'school'%>">      <img src="/images/school.png" />      </a></li>
+        <li> <a id="course-link"     href="<%=url_for :controller => 'course'%>">      <img src="/images/course.png" />      </a></li>
+        <li> <a id="discipline-link" href="<%=url_for :controller => 'discipline'%>">  <img src="/images/discipline.png" />  </a></li>
+        <li> <a id="teacher-link"    href="<%=url_for :controller => 'teacher'%>">     <img src="/images/teacher.png" />     </a></li>
       </ul>
     </div>
   </div>
