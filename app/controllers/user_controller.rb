@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  layout 'scaffold'
+  layout 'main'
   before_filter :login_required, :except => [:signup, :authenticate, :confirm_email]
 
   def signup
@@ -20,7 +20,7 @@ class UserController < ApplicationController
     u = User.verify_login(login, token)
     if u
       flash[:notice] = get_message('email_confirmed')
-      redirect_to :action => "login"
+      redirect_to :action => "authenticate"
     else
       flash[:notice] = get_message('invalid_email_confirmation')
       redirect_to :action => "signup"
@@ -35,7 +35,7 @@ class UserController < ApplicationController
         flash[:notice] = get_message('authentication_successful')
         redirect_to :action => 'welcome'
       else
-        flash[:error] = get_message('authentication_failed')
+        flash[:notice] = get_message('authentication_failed')
       end
     end
   end

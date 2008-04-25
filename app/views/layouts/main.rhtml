@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>: <%= @title || controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'main' %>  
+  <%= render(:partial => "main/include_default_css") %>
+</head>
+
+<body>
+  <div id="header">
+    <ul>
+      <li> <a href="/">                                         <img src="/images/home.png" />        </a></li>
+      <li> <a href="<%=url_for :controller => 'school'%>">      <img src="/images/school.png" />      </a></li>
+      <li> <a href="<%=url_for :controller => 'course'%>">      <img src="/images/course.png" />      </a></li>
+      <li> <a href="<%=url_for :controller => 'discipline'%>">  <img src="/images/discipline.png" />  </a></li>
+      <li> <a href="<%=url_for :controller => 'teacher'%>">     <img src="/images/teacher.png" />     </a></li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <div class="notices"><%= flash[:notice] %></div>
+    <%= yield  %>
+  </div>
+</body>
+
+</html>

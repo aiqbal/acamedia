@@ -1,0 +1,8 @@
+<%
+  style_files = get_stylesheets
+  style_files.each do |file_name|
+%>
+<%= stylesheet_link_tag(file_name) %>
+<%
+  end
+%>

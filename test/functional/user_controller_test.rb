@@ -44,7 +44,7 @@ class UserControllerTest < ActionController::TestCase
 
   def test_verify_user
     get :confirm_email, :login => @user2.login, :security_token => @user2.security_token
-    assert_redirected_to :action => "login"
+    assert_redirected_to :action => "authenticate"
     assert_equal get_msg("email_confirmed"), flash[:notice]
 
     u = User.find_by_login @user2.login
@@ -53,11 +53,11 @@ class UserControllerTest < ActionController::TestCase
 
   def test_invalid_authenticate
     post :authenticate, {:user => {:login => @user1.login, :password => "invalid_password"}}
-    assert_equal get_msg("authentication_failed"), flash[:error]
+    assert_equal get_msg("authentication_failed"), flash[:notice]
     assert !session[:user]
 
     post :authenticate, {:user => {:login => @user2.login, :password => "user2password"}}
-    assert_equal get_msg("authentication_failed"), flash[:error]
+    assert_equal get_msg("authentication_failed"), flash[:notice]
     assert !session[:user]
   end
 

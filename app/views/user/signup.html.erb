@@ -4,10 +4,30 @@
 </div>
 
 <%form_for :user do |form|%>
-  <p> Login:            <%= form.text_field     :login,                 :size => 40 %> </p>
-  <p> First Name:       <%= form.text_field     :firstname,             :size => 40 %> </p>
-  <p> Last Name:        <%= form.text_field     :lastname,              :size => 40 %> </p>
-  <p> Password:         <%= form.password_field :password,              :size => 40 %> </p>
-  <p> Retype Password:  <%= form.password_field :password_confirmation, :size => 40 %> </p>
-  <p> <%= submit_tag %> </p>
+  <table>
+    <tr>
+      <td>Login</td>
+      <td><%= form.text_field :login, :size => 40 %></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><%= form.text_field :firstname, :size => 40 %></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><%= form.text_field :lastname, :size => 40 %></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><%= form.password_field :password, :size => 40 %></td>
+    </tr>
+    <tr>
+      <td>Retype Password</td>
+      <td><%= form.password_field :password_confirmation, :size => 40 %></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><%= submit_tag %></td>
+    </tr>
+  </table>
 <%end%>

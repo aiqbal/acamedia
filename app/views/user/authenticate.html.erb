@@ -1,10 +1,18 @@
-<h1>Authenticate</h1>
-<div class="errors">
-  <%= flash[:error] %>
-</div>
+<h1>Sign In</h1>
 
 <%form_for :user do |form|%>
-  <p> Login:            <%= form.text_field     :login,                 :size => 40 %> </p>
-  <p> Password:         <%= form.password_field :password,              :size => 40 %> </p>
-  <p> <%= submit_tag "Submit" %> </p>
+  <table>
+    <tr>
+      <td>Login</td>
+      <td><%= form.text_field :login, :size => 40 %> </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><%= form.password_field :password, :size => 40 %> </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= submit_tag "Submit" %></td>
+    </tr>
+  </table>
 <%end%>
