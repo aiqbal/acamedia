@@ -1,5 +1,5 @@
 class CourseController < ApplicationController
-  layout 'scaffold'
+  layout 'main'
   before_filter :login_required, :except => :view
 
   def view
