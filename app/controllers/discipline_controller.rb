@@ -1,5 +1,7 @@
 class DisciplineController < ApplicationController
   layout 'main'
+  before_filter :login_required, :except => :view
+
   def create
     if request.post?
       @discipline = Discipline.new(params[:discipline])
