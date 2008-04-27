@@ -27,10 +27,13 @@ h1 {
   padding: 0px;
 }
 
+#navigation-header {
+  clear:both;
+}
 #navigation-header ul {
   margin:0px;
   padding:0px;
-  padding-top: 117px;
+  padding-top: 67px;
   margin-left: 55px;
 }
 
