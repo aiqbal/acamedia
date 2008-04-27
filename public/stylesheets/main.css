@@ -80,9 +80,8 @@ h1 {
   font-size: 16px;
 }
 /*error messages css*/
-.fieldWithErrors {
-  padding: 0.5px;
-  background-color: #000;
+.fieldWithErrors input {
+  border: 2px solid #000;
 }
 
 #errorExplanation {
