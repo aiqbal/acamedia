@@ -21,7 +21,7 @@ class CourseController < ApplicationController
 
   def add_link
     if request.post?
-      @course_link = CourseLink.new(params[:course_link])
+      @course_link = SchoolCourseLink.new(params[:course_link])
       @course_link.creator = get_session_user
       if @course_link.save
         flash[:add_link_notice] = get_message('add_link_success')

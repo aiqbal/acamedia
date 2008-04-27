@@ -3,6 +3,6 @@
 thumb1:
   id: 1
   ref_id: 1
-  thumb_class: CourseLink
+  thumb_class: SchoolCourseLink
   thumb_type: 0
   user_id: 1

@@ -41,8 +41,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_get_created_links
-    expected_result = [@course_link1, @course_link2]
-    assert_set_equal(expected_result, @user1.created_course_links)
+    expected_result = [@school_course_link1, @school_course_link2]
+    assert_set_equal(expected_result, @user1.created_school_course_links)
   end
 
   # validation tests

@@ -43,7 +43,7 @@ class CourseControllerTest < ActionController::TestCase
     course_link = assigns(:course_link)
     assert(course_link)
     #assert_equal(get_msg('add_link_success'), flash[:add_link_notice])
-    course_link = CourseLink.find_by_url('http://nu.edu.pk/test.html')
+    course_link = SchoolCourseLink.find_by_url('http://nu.edu.pk/test.html')
     school = School.find_by_domain('nu.edu.pk')
     assert(course_link)
     assert(school) # making sure that the school is created on adding a url

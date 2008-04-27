@@ -12,9 +12,9 @@ class CourseTest < ActiveSupport::TestCase
     assert_set_equal(expected_result, users)
   end
 
-  def test_get_course_links
-    expected_result = [@course_link1, @course_link2]
-    assert_set_equal(expected_result, @course1.course_links)
+  def test_get_school_course_links
+    expected_result = [@school_course_link1, @school_course_link2]
+    assert_set_equal(expected_result, @course1.school_course_links)
   end
   
   def test_get_discipline

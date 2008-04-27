@@ -8,5 +8,5 @@ class Course < ActiveRecord::Base
   belongs_to :discipline
   has_many :course_users
   has_many :users, :through => :course_users
-  has_many :course_links
+  has_many :school_course_links
 end

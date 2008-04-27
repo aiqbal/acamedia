@@ -8,8 +8,8 @@ protected
   has_many :created_schools,      :foreign_key => :created_by, :class_name => "School"
   has_many :created_courses,      :foreign_key => :created_by, :class_name => "Course"
   has_many :created_disciplines,  :foreign_key => :created_by, :class_name => "Discipline"
-  has_many :created_course_links, :foreign_key => :created_by, :class_name => "CourseLink"
   has_many :created_degrees,      :foreign_key => :created_by, :class_name => "Degree"
+  has_many :created_school_course_links, :foreign_key => :created_by, :class_name => "SchoolCourseLink"
   
   has_and_belongs_to_many :disciplines
   has_many :school_users

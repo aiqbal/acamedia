@@ -10,7 +10,7 @@ class Degree < ActiveRecord::Base
   end
 
   belongs_to :discipline
-  has_many :course_links
+  has_many :school_course_links
   belongs_to :creator, :foreign_key => :created_by, :class_name => "User"
 
   def self.levels

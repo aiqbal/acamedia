@@ -1,4 +1,4 @@
-class CourseLink < ActiveRecord::Base
+class SchoolCourseLink < ActiveRecord::Base
   include ThumbHelper
   validates_presence_of     :school_id, :created_by, :course_id, :url
   validates_format_of       :url, :with => /^http(s)?:\/\/[\w\-\.]+\.[\w\-\.\/]+$/

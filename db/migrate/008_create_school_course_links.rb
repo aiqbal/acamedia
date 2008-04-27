@@ -1,6 +1,6 @@
-class CreateCourseLinks < ActiveRecord::Migration
+class CreateSchoolCourseLinks < ActiveRecord::Migration
   def self.up
-    create_table :course_links do |t|
+    create_table :school_course_links do |t|
       t.column :course_id,    :integer, :null => false
       t.column :school_id,    :integer, :null => false
       t.column :created_by,   :integer, :null => false
@@ -12,13 +12,13 @@ class CreateCourseLinks < ActiveRecord::Migration
       t.column :video_lectures_url, :string, :default => nil
       t.timestamps
     end
-    add_index :course_links, :course_id
-    add_index :course_links, :school_id
-    add_index :course_links, :created_by
-    add_index :course_links, :degree_id
+    add_index :school_course_links, :course_id
+    add_index :school_course_links, :school_id
+    add_index :school_course_links, :created_by
+    add_index :school_course_links, :degree_id
   end
 
   def self.down
-    drop_table :course_links
+    drop_table :school_course_links
   end
 end
