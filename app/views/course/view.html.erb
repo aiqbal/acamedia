@@ -3,12 +3,12 @@
 
 <h3> Add a url </h3>
 <p style="color: green"><%= flash[:add_link_notice] %></p>
-<%form_for :course_link, :url => {:action => :add_link, :id => @course.name} do |form|%>
+<%form_for :school_course_link, :url => {:action => :add_link, :id => @course.name} do |form|%>
   <%=form.hidden_field :course_id, :value => @course.id%>
   <p> Url:  <%= form.text_field     :url, :size => 100 %> </p>
   <p> <%= submit_tag %> </p>
 <%end%>
 
 <div id="course-links">
-  <%= render(:partial => "course_link" , :collection => @course.course_links) %>
+  <%= render(:partial => "school_course_link" , :collection => @course.school_course_links) %>
 </div>

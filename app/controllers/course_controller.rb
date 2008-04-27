@@ -21,11 +21,11 @@ class CourseController < ApplicationController
 
   def add_link
     if request.post?
-      @course_link = SchoolCourseLink.new(params[:course_link])
-      @course_link.creator = get_session_user
-      if @course_link.save
+      @school_course_link = SchoolCourseLink.new(params[:school_course_link])
+      @school_course_link.creator = get_session_user
+      if @school_course_link.save
         flash[:add_link_notice] = get_message('add_link_success')
-      elsif @course_link.errors['url']
+      elsif @school_course_link.errors['url']
         flash[:add_link_notice] = get_message('add_link_invalid_url')
       else
         flash[:add_link_notice] = get_message('add_link_failure')
