@@ -33,14 +33,14 @@ class CourseControllerTest < ActionController::TestCase
     post :add_link
     assert_redirected_to :action => :authenticate
 
-    post_as_logged_in :add_link, @user1, {:course_link => {:url => "fadsfas"}}
+    post_as_logged_in :add_link, @user1, {:school_course_link => {:url => "fadsfas"}}
     #assert_equal(get_msg('add_link_invalid_url'), flash[:add_link_notice])
-    course_link = assigns(:course_link)
+    course_link = assigns(:school_course_link)
     assert(course_link.errors[:url])
     assert_redirected_to :action => :view
 
-    post_as_logged_in :add_link, @user1, {:course_link => {:url => "nu.edu.pk/test.html", :course_id => @course1.id}}
-    course_link = assigns(:course_link)
+    post_as_logged_in :add_link, @user1, {:school_course_link => {:url => "nu.edu.pk/test.html", :course_id => @course1.id}}
+    course_link = assigns(:school_course_link)
     assert(course_link)
     #assert_equal(get_msg('add_link_success'), flash[:add_link_notice])
     course_link = SchoolCourseLink.find_by_url('http://nu.edu.pk/test.html')
