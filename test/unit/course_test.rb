@@ -49,4 +49,19 @@ class CourseTest < ActiveSupport::TestCase
     assert(c.save)
   end
 
+  def test_get_online_resource
+    expected_result = [@online_resource1]
+    assert_equal(expected_result, @course1.online_resources)
+  end
+
+  def test_add_resource
+    resource = @course1.add_resource("resource_type", @user1, "title", "description", "url")
+    assert_equal(nil, resource.id)
+    assert(resource.errors[:url])
+
+    resource = @course2.add_resource("resource_type", @user1, "title", "description", "test.testdomain.com")
+    assert(resource.id)
+    assert_equal([resource], @course2.online_resources)
+  end
+
 end

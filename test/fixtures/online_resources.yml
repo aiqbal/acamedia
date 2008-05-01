@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+online_resource1:
+  id: 1
+  ref_id: 1
+  ref_class: Course
+  resource_type: ebook
+  title: ebook name
+  description: ebook description
+  user_id: 1
