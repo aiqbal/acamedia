@@ -7,9 +7,6 @@ class CreateSchoolCourseLinks < ActiveRecord::Migration
       t.column :url,          :string,  :null => false
       t.column :degree_id,    :integer, :default => nil
       t.column :offered_year, :integer, :default => nil
-      t.column :assignments_url,    :string, :default => nil
-      t.column :lectures_url,       :string, :default => nil
-      t.column :video_lectures_url, :string, :default => nil
       t.timestamps
     end
     add_index :school_course_links, :course_id

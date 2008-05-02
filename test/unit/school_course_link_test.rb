@@ -59,4 +59,14 @@ class SchoolCourseLinkTest < ActiveSupport::TestCase
     t = c.add_thumb("0", @user2)
     assert_set_equal([@thumb1, t], c.thumbs)
   end
+
+  def test_add_resource
+    resource = @school_course_link1.add_resource("resource_type", @user1, "title", "description", "url")
+    assert_equal(nil, resource.id)
+    assert(resource.errors[:url])
+
+    resource = @school_course_link1.add_resource("resource_type", @user1, "title", "description", "test.testdomain.com")
+    assert(resource.id)
+    assert_equal([resource], @school_course_link1.online_resources)
+  end
 end
