@@ -158,7 +158,7 @@ class UserTest < ActiveSupport::TestCase
     assert(1, user.verified)
   end
 
-  def test_get_thumb
-    assert_set_equal([@thumb1], @user1.thumbs)
+  def test_get_votes
+    assert_set_equal([@vote1], @user1.votes)
   end
 end

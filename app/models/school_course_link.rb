@@ -1,5 +1,5 @@
 class SchoolCourseLink < ActiveRecord::Base
-  include ThumbHelper
+  include VotesHelper
   include OnlineResourceHelper
 
   validates_presence_of     :school_id, :created_by, :course_id, :url

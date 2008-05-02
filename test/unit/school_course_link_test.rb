@@ -45,19 +45,20 @@ class SchoolCourseLinkTest < ActiveSupport::TestCase
     assert_equal(@school1, cl.school)
   end
   
-  def test_get_thumbs
+  def test_get_votes
     c = @school_course_link1
-    assert_equal([@thumb1], c.thumbs)
+    assert_equal([@vote1], c.votes)
   end
   
-  def test_add_thumb
+  def test_add_vote
     c = @school_course_link1
-    t = c.add_thumb("1", @user2)
-    assert_set_equal([@thumb1, t], c.thumbs)
+    assert_equal(1, c.votes.length)
+    assert(c.add_vote(1, @user2))
+    assert_equal(2, c.votes.length)
 
-    # make sure that a single cant add multiple thumbs for a single link
-    t = c.add_thumb("0", @user2)
-    assert_set_equal([@thumb1, t], c.thumbs)
+    # make sure that a single user cant add multiple votes for a single link
+    assert(c.add_vote(0, @user2))
+    assert_equal(2, c.votes.length)
   end
 
   def test_add_resource

@@ -16,7 +16,7 @@ protected
   has_many :schools, :through => :school_users
   has_many :course_users
   has_many :courses, :through => :course_users
-  has_many :thumbs
+  has_many :votes
 
   validates_presence_of     :login
   validates_length_of       :login, :in => 3..80

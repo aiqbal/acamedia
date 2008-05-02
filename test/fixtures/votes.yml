@@ -1,8 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-thumb1:
+vote1:
   id: 1
   ref_id: 1
-  thumb_class: SchoolCourseLink
-  thumb_type: 0
+  ref_class: SchoolCourseLink
+  agreement: 0
   user_id: 1
