@@ -1,14 +1,21 @@
 <h1> <%=@course.name%> </h1>
 <p> Discipline: <%=@course.discipline.name%> </p>
 
-<h3> Add a url </h3>
-<p style="color: green"><%= flash[:add_link_notice] %></p>
-<%form_for :school_course_link, :url => {:action => :add_link, :id => @course.name} do |form|%>
-  <%=form.hidden_field :course_id, :value => @course.id%>
-  <p> Url:  <%= form.text_field     :url, :size => 100 %> </p>
-  <p> <%= submit_tag %> </p>
-<%end%>
 
-<div id="course-links">
-  <%= render(:partial => "school_course_link" , :collection => @course.school_course_links) %>
+<div id="school-course-links-container">
+  <h3> Add a url </h3>
+  <p style="color: green"><%= flash[:add_link_notice] %></p>
+  <%form_for :school_course_link, :url => {:action => :add_link, :id => @course.name} do |form|%>
+    <%=form.hidden_field :course_id, :value => @course.id%>
+    <p> Url:  <%= form.text_field     :url, :size => 50 %> </p>
+    <p> <%= submit_tag %> </p>
+  <%end%>
+
+  <div id="course-links">
+    <%= render(:partial => "school_course_link" , :collection => @course.school_course_links) %>
+  </div>
+</div> <!-- end of school-course-links-container -->
+
+<div id="online-resources-container">
+  <%= render(:partial => "online_resources") %>
 </div>

@@ -4,3 +4,8 @@ created_successfully: Course has been created successfully.
 add_link_success: Link has been added successfully.
 add_link_failure: Link could not be saved.
 add_link_invalid_url: Invalid url specified, please specify a valid url.
+
+
+#online_resources
+add_resource_success: Resource has been added successfully.
+add_resource_failure: Resource could not be saved.

@@ -1,0 +1,12 @@
+<h3> Add an online resource </h3>
+<div style="color: green"><%= flash[:add_resource_notice] %></div>
+
+<%form_for :online_resource, :url => {:action => :add_resource, :id => @course.name} do |form|%>
+  <%=form.hidden_field :course_id, :value => @course.id%>
+  <p> Url:  <%= form.text_field     :url, :size => 50 %> </p>
+  <p> <%= submit_tag %> </p>
+<%end%>
+
+<div id="online-resources-links">
+  <%= render(:partial => "online_resource_link" , :collection => @course.online_resources) %>
+</div>

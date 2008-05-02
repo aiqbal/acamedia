@@ -34,6 +34,19 @@ class CourseController < ApplicationController
     redirect_to :action => :view, :id => params[:id]
   end
 
+  def add_resource
+    if request.post?
+      @course = Course.find_by_id(params[:online_resource][:course_id])
+      resource = @course.add_resource("test resource", get_session_user, "title", "description", params[:online_resource][:url])
+      if resource.id
+        flash[:add_resource_notice] = get_message('add_resource_success')
+      else
+        flash[:add_resource_notice] = get_message('add_resource_failure')
+      end
+    end
+    redirect_to :action => :view, :id => params[:id]
+  end
+
   def edit
   end
 end
