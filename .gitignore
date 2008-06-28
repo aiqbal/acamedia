@@ -1,4 +1,6 @@
-log
+*.log
 *.swp
 *~
 db/schema.rb
+./nbproject/
+nbproject/*
